@@ -6,7 +6,8 @@ def create_venv():
 
 def create_new_folder(folder_name):
 	os.mkdir(os.path.join(os.getcwd(), folder_name))
-
+	os.system(f'cd {folder_name}')
+	
 def create_commen_fiels(project_name):
 	with open('README.txt', 'a') as f:
 		f.write(f'{project_name}')
@@ -31,9 +32,11 @@ if __name__ == '__main__':
 	project_name = sys.argv[1]
 	ssh = sys.argv[2]
 	
+	create_new_folder(project_name)
+
 	create_venv()
 
-	create_new_folder(project_name)
+	
 	
 	create_commen_fiels(project_name)
 	
