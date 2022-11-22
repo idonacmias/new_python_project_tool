@@ -4,7 +4,6 @@ import sys
 
 def create_venv():
 	os.system('python3 -m virtualenv myenv')
-	# os.system('source myenv/bin/activate') #cant source from python3 code?	
 
 def create_new_folder(folder_name):
 	os.mkdir(os.getcwd() + f'/{folder_name}')
@@ -44,4 +43,3 @@ if __name__ == '__main__':
 	git_init_to_push(project_name, ssh)	
 	
 
-"click"
