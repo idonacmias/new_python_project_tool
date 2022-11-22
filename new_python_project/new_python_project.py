@@ -6,7 +6,7 @@ def create_venv():
 	os.system('python3 -m virtualenv myenv')
 
 def create_new_folder(folder_name):
-	os.mkdir(os.getcwd() + f'/{folder_name}')
+	os.mkdir(os.path.join(os.getcwd(), folder_name))
 
 def create_commen_fiels(project_name):
 	with open('README.txt', 'a') as f:
@@ -19,9 +19,7 @@ def create_commen_fiels(project_name):
 def git_init_to_push(project_name, shh):
 	cmds = ['git init',	
 		   'git add .',
-		   'git status',
 		   'git commit . -m "first comment"',
-		   'git status',
 	       'git branch -M main',
 		  f'git remote add origin {ssh}',
 		   'git push -u origin main']
