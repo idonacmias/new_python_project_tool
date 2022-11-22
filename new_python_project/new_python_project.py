@@ -17,15 +17,16 @@ def create_commen_fiels(project_name):
 
 
 def git_init_to_push(project_name, shh):
-	os.system('git init')	
-	os.system('git add .')
-	os.system('git status')
-	os.system('git commit . -m "first comment"')
-	os.system('git status')
-	os.system('git branch -M main')
-	os.system(f'git remote add origin {ssh}')
-	os.system('git push -u origin main')
-
+	cmds = ['git init',	
+		   'git add .',
+		   'git status',
+		   'git commit . -m "first comment"',
+		   'git status',
+	       'git branch -M main',
+		  f'git remote add origin {ssh}',
+		   'git push -u origin main']
+   	for cmd in cmds:
+   		os.system(cmd) 
 
 if __name__ == '__main__':
 	print('new_python_project')
