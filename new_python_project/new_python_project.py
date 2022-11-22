@@ -1,6 +1,5 @@
 import os
 import sys
-from pathlib import path 
 
 def create_venv():
 	os.system('python3 -m virtualenv myenv')
@@ -18,12 +17,13 @@ def create_commen_fiels(project_name):
 
 def git_init_to_push(project_name, shh):
 	cmds = ['git init',	
-		   'git add .',
-		   'git commit . -m "first comment"',
-	       'git branch -M main',
-		  f'git remote add origin {ssh}',
-		   'git push -u origin main']
-   	for cmd in cmds:
+   		    'git add .',
+		    'git commit . -m "first comment"',
+	        'git branch -M main',
+		   f'git remote add origin {ssh}',
+		    'git push -u origin main']
+	
+	for cmd in cmds:
    		os.system(cmd) 
 
 if __name__ == '__main__':
