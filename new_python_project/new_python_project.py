@@ -1,6 +1,6 @@
 import os
 import sys
-
+from pathlib import path 
 
 def create_venv():
 	os.system('python3 -m virtualenv myenv')
@@ -11,11 +11,9 @@ def create_new_folder(folder_name):
 def create_commen_fiels(project_name):
 	with open('README.txt', 'a') as f:
 		f.write(f'{project_name}')
-		f.close()
 
 	with open('requirements.txt', 'a') as f:
-		f.close()
-
+		pass
 
 
 def git_init_to_push(project_name, shh):
