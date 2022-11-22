@@ -10,3 +10,5 @@ app folder
 git folder
 
 it also push the git to github repository
+
+tested on linux ubuntu only
