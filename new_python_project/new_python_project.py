@@ -18,14 +18,14 @@ def create_commen_fiels(project_name):
 
 
 
-def git_init_to_push(project_name, git_rep):
+def git_init_to_push(project_name, shh):
 	os.system('git init')	
 	os.system('git add .')
 	os.system('git status')
 	os.system('git commit . -m "first comment"')
 	os.system('git status')
 	os.system('git branch -M main')
-	os.system(f'git remote add origin {git_rep}')
+	os.system(f'git remote add origin {ssh}')
 	os.system('git push -u origin main')
 
 
