@@ -35,7 +35,7 @@ if __name__ == '__main__':
 	project_name = sys.argv[1]
 	url = sys.argv[2]
 	
-	create_new_folder('README.txt')
+	create_new_folder(project_name)
 
 	create_venv(project_name)
 	
