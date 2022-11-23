@@ -1,6 +1,18 @@
 import os
 import sys
 
+def open_project():
+	project_name = sys.argv[1]
+	src = sys.argv[2]
+	
+	create_new_folder(project_name)
+
+	create_venv(project_name)
+	
+	create_commen_fiels(project_name)
+	
+	git_init_to_push(project_name, src)	
+	
 
 def create_venv(project_name):
 	os.system(f'python3 -m virtualenv {os.path.join("myenv")}')
@@ -32,15 +44,5 @@ def git_init_to_push(project_name, src):
 
 
 if __name__ == '__main__':
-	project_name = sys.argv[1]
-	src = sys.argv[2]
-	
-	create_new_folder(project_name)
-
-	create_venv(project_name)
-	
-	create_commen_fiels(project_name)
-	
-	git_init_to_push(project_name, src)	
-	
+	open_project()
 
