@@ -5,7 +5,7 @@ def open_project():
 	project_name = sys.argv[1]
 	src = sys.argv[2]
 	create_new_folder(project_name)
-	os.chdir(project_path)
+	os.chdir(project_name)
 	create_venv(project_name)
 	create_commen_files(project_name)
 	git_init_to_push(project_name, src)	
