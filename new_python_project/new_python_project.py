@@ -37,7 +37,7 @@ def git_init_to_push(project_name, src):
    		    'git add .',
 		    'git commit . -m "first comment"',
 		   f'git remote add origin {src}',
-		    'git push -u origin main']
+		    'git push -u origin master']
 	
 	for cmd in cmds:
    		os.system(cmd) 
