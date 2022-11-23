@@ -23,17 +23,12 @@ def create_new_folder(project_name):
 	os.chdir(project_path)
 
 def create_commen_files(project_name):
-	file_name = 'README.txt' #os.path.join(project_name, 'README.txt')
-	with open(file_name, 'a') as f:
-		f.write(f'{project_name}')
+	create_file('README.txt', project_name)
+	create_file('requirements.txt')
 
-	file_name = 'requirements.txt' #os.path.join(project_name, 'requirements.txt')
+def create_file(file_name, text=''):
 	with open(file_name, 'a') as f:
-		f.close()
-
-def create_file(file_name, text):
-	with open(file_name, 'a') as f:
-		f.write(f'{project_name}')
+		f.write(f'{text}')
 
 
 def git_init_to_push(project_name, src):
