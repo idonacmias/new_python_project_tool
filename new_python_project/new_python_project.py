@@ -20,11 +20,11 @@ def create_commen_fiels(project_name):
 		f.close()
 
 
-def git_init_to_push(project_name, url):
+def git_init_to_push(project_name, src):
 	cmds = ['git init',	
    		    'git add .',
 		    'git commit . -m "first comment"',
-		   f'git remote add origin {url}',
+		   f'git remote add origin {src}',
 		    'git push -u origin main']
 	
 	for cmd in cmds:
@@ -33,7 +33,7 @@ def git_init_to_push(project_name, url):
 
 if __name__ == '__main__':
 	project_name = sys.argv[1]
-	url = sys.argv[2]
+	src = sys.argv[2]
 	
 	create_new_folder(project_name)
 
@@ -41,6 +41,6 @@ if __name__ == '__main__':
 	
 	create_commen_fiels(project_name)
 	
-	git_init_to_push(project_name, url)	
+	git_init_to_push(project_name, src)	
 	
 
