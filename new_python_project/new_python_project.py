@@ -6,6 +6,7 @@ def open_project():
 	src = sys.argv[2]
 	
 	create_new_folder(project_name)
+	os.chdir(project_path)
 
 	create_venv(project_name)
 	
@@ -20,7 +21,6 @@ def create_venv(project_name):
 def create_new_folder(project_name):
 	project_path = os.path.join(os.getcwd(), project_name)
 	os.mkdir(project_path)
-	os.chdir(project_path)
 
 def create_commen_files(project_name):
 	create_file('README.txt', project_name)
