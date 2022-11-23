@@ -1,45 +1,46 @@
 import os
 import sys
 
-def create_venv():
-	os.system('python3 -m virtualenv myenv')
 
-def create_new_folder(folder_name):
-	os.mkdir(os.path.join(os.getcwd(), folder_name))
-	os.system(f'cd {folder_name}')
-	
+def create_venv(project_name):
+	os.system(f'python3 -m virtualenv {os.path.join(project_name, "myenv")}')
+
+def create_new_folder(project_name):
+	project_path = os.path.join(os.getcwd(), project_name)
+	os.mkdir(project_path)
+	os.chdir(project_path)
+
 def create_commen_fiels(project_name):
-	with open('README.txt', 'a') as f:
+	file_name = 'README.txt' #os.path.join(project_name, 'README.txt')
+	with open(file_name, 'a') as f:
 		f.write(f'{project_name}')
 
-	with open('requirements.txt', 'a') as f:
-		pass
+	file_name = 'requirements.txt' #os.path.join(project_name, 'requirements.txt')
+	with open(file_name, 'a') as f:
+		f.close()
 
 
-def git_init_to_push(project_name, shh):
+def git_init_to_push(project_name, url):
 	cmds = ['git init',	
    		    'git add .',
 		    'git commit . -m "first comment"',
-	        'git branch -M main',
-		   f'git remote add origin {ssh}',
+		   f'git remote add origin {url}',
 		    'git push -u origin main']
 	
 	for cmd in cmds:
    		os.system(cmd) 
 
+
 if __name__ == '__main__':
-	print('new_python_project')
 	project_name = sys.argv[1]
-	ssh = sys.argv[2]
+	url = sys.argv[2]
 	
-	create_new_folder(project_name)
+	create_new_folder('README.txt')
 
-	create_venv()
-
-	
+	create_venv(project_name)
 	
 	create_commen_fiels(project_name)
 	
-	git_init_to_push(project_name, ssh)	
+	git_init_to_push(project_name, url)	
 	
 
