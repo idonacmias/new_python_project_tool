@@ -9,7 +9,7 @@ def open_project():
 
 	create_venv(project_name)
 	
-	create_commen_fiels(project_name)
+	create_commen_files(project_name)
 	
 	git_init_to_push(project_name, src)	
 	
@@ -22,7 +22,7 @@ def create_new_folder(project_name):
 	os.mkdir(project_path)
 	os.chdir(project_path)
 
-def create_commen_fiels(project_name):
+def create_commen_files(project_name):
 	file_name = 'README.txt' #os.path.join(project_name, 'README.txt')
 	with open(file_name, 'a') as f:
 		f.write(f'{project_name}')
@@ -30,6 +30,10 @@ def create_commen_fiels(project_name):
 	file_name = 'requirements.txt' #os.path.join(project_name, 'requirements.txt')
 	with open(file_name, 'a') as f:
 		f.close()
+
+def create_file(file_name, text):
+	with open(file_name, 'a') as f:
+		f.write(f'{project_name}')
 
 
 def git_init_to_push(project_name, src):
