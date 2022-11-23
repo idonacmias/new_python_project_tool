@@ -3,7 +3,7 @@ import sys
 
 
 def create_venv(project_name):
-	os.system(f'python3 -m virtualenv {os.path.join(project_name, "myenv")}')
+	os.system(f'python3 -m virtualenv {os.path.join("myenv")}')
 
 def create_new_folder(project_name):
 	project_path = os.path.join(os.getcwd(), project_name)
