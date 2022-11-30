@@ -4,7 +4,7 @@ import click
 @click.command()
 @click.option('--project_name', prompt='project name')
 @click.option('--src', prompt='git repository link',
-			help="conect new git reposetory buy open one in git hub and copy it here")
+			help="conect new git reposetory buy open one in github and copy it here")
 def open_project(project_name, src):
 	create_new_folder(project_name)
 	os.chdir(project_name)
