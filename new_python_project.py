@@ -13,7 +13,7 @@ def open_project(project_name, src):
 	git_init_to_push(project_name, src)	
 
 def create_venv(project_name):
-	os.system(f'python3 -m virtualenv {os.path.join("myenv")}')
+	os.system(f'python3 -m venv myenv')
 
 def create_new_folder(project_name):
 	project_path = os.path.join(os.getcwd(), project_name)
