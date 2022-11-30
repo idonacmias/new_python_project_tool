@@ -1,6 +1,8 @@
+==================
 new_python_project
+==================
 
-this tool create:
+*this tool create:
 
 project folder contain:
 	virtual environment
