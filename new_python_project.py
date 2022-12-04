@@ -9,7 +9,7 @@ from json import load
 # @click.option('--src', default='wwwwwwww', prompt='git repository link',
 # 			help="conect new git reposetory by open one in github and copy it here")
 
-def open_project(project_name):
+def open_project(project_name, models=''):
 	config = load_config()
 	create_new_folder(project_name)
 	os.chdir(project_name)
@@ -17,7 +17,7 @@ def open_project(project_name):
 	create_commen_files(project_name)
 	src = generate_src(project_name, config["git_user_name"])
 	git_init_to_push(project_name, src) 
-	install_requirements()
+	install_requirements(models)
 
 def load_config():
 	config_file = main_folder() + '/config.json' 
@@ -68,19 +68,22 @@ def join_comends(commends):
 def activate_venv_commend():
 	return '. myenv/bin/activate'
 
-def install_requirements():
-	if platform == 'linux':
-		pip = 'pip3'
-
-	else:
-		pip = 'pip'
-
-	requirements = [f'{pip} install flask',
-					f'{pip} freeze > requirements.txt',
+def install_requirements(models):
+	models = ['flask', 'Flask-SQLAlchemy']
+	pip = generate_pip()
+	requirements = [f'{pip} install {i}' for i in models] 
+	requirements.extend([f'{pip} freeze > requirements.txt',
 					'git commit requirements.txt -m "install requirements"',
-					'git push -u origin']
+					'git push -u origin'])
 	requirements.insert(0, activate_venv_commend())
 	join_comends(requirements)
+
+def generate_pip():
+	if platform == 'linux':
+		return 'pip3'
+
+	else:
+		return 'pip'
 
 if __name__ == '__main__':
 	fire.Fire(open_project)
